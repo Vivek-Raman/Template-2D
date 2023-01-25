@@ -12,7 +12,7 @@ public class BooleanSettingItem : SettingItem
         this.HandleSettingValueChanged(value.ToString());
     }
 
-    protected override void LoadDefaultValueIntoUI(string value)
+    protected override void LoadSettingValueIntoUI(string value)
     {
         toggle.SetIsOnWithoutNotify(bool.Parse(value));
     }

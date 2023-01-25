@@ -13,7 +13,7 @@ public class SliderSettingItem : SettingItem
         this.HandleSettingValueChanged(value.ToString(CultureInfo.InvariantCulture));
     }
 
-    protected override void LoadDefaultValueIntoUI(string value)
+    protected override void LoadSettingValueIntoUI(string value)
     {
         slider.SetValueWithoutNotify(float.Parse(value, CultureInfo.InvariantCulture));
     }

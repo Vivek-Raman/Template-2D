@@ -7,11 +7,15 @@ namespace wannaB.UI
 {
 public abstract class SettingItem : MonoBehaviour
 {
-    [SerializeField] protected UnityEvent<object> onSettingValueChanged;
+    [SerializeField] protected UnityEvent<string> onSettingValueChanged;
     [SerializeField] private string settingKey;
+    [SerializeField] private string _settingDefaultValue;
     private string _settingValue;
 
-    public Tuple<string, string> SettingData => new (settingKey, _settingValue);
+    public string SettingKey => settingKey;
+    public string SettingValue => _settingValue;
+    public string SettingDefaultValue => _settingDefaultValue;
+
 
     private void OnValidate()
     {
@@ -24,16 +28,16 @@ public abstract class SettingItem : MonoBehaviour
         onSettingValueChanged?.Invoke(value);
     }
 
-    public void LoadDefaultValue(string value, bool loadIntoUI)
+    public void LoadSettingValue(string value, bool loadIntoUI)
     {
         if (loadIntoUI)
         {
-            this.LoadDefaultValueIntoUI(value);
+            this.LoadSettingValueIntoUI(value);
         }
 
         this.HandleSettingValueChanged(value);
     }
 
-    protected abstract void LoadDefaultValueIntoUI(string value);
+    protected abstract void LoadSettingValueIntoUI(string value);
 }
 }

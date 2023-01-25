@@ -348,7 +348,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3185644379844297724, guid: ca96e7291f77aa34b9644c7742c684fd, type: 3}
       propertyPath: m_Name
-      value: Invert Y Setting
+      value: Invert Y Setting Variant
       objectReference: {fileID: 0}
     - target: {fileID: 5940141033775369188, guid: ca96e7291f77aa34b9644c7742c684fd, type: 3}
       propertyPath: m_AnchorMax.y
@@ -414,6 +414,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   settingKey: Invert Y
+  _settingDefaultValue: false
   toggle: {fileID: 1330220771355514079}
 --- !u!224 &4478866481314767162 stripped
 RectTransform:

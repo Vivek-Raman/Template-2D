@@ -15,13 +15,13 @@ public class SingletonMonoBehaviour<T> : MonoBehaviour where T : MonoBehaviour
             if (!_isLoaded)
             {
                 _instance = FindObjectOfType<T>();
-                _isLoaded = true;
+                _isLoaded = _instance != null;
             }
             return _instance;
         }
     }
 
-    public void Awake()
+    public virtual void Awake()
     {
         DontDestroyOnLoad(this);
     }
