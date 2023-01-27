@@ -568,11 +568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53cbd82474fc407584635b063506ab22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onSettingValueChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  settingKey: Master Volume
-  _settingDefaultValue: 0.7
+  settingKey: 4
   slider: {fileID: 1701026153904669077}
 --- !u!224 &7154993805237464062 stripped
 RectTransform:

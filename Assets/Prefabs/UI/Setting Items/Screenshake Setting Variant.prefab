@@ -112,6 +112,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5895952387992632669, guid: 043ba6e076f62b54184545fd996a5f85, type: 3}
+      propertyPath: settingKey
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5895952387992632669, guid: 043ba6e076f62b54184545fd996a5f85, type: 3}
       propertyPath: _settingDefaultValue
       value: true
       objectReference: {fileID: 0}

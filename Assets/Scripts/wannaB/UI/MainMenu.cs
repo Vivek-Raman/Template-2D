@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace wannaB.UI
@@ -7,6 +8,12 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField] private GameObject mainMenuPanel;
     [SerializeField] private GameObject settingsPanel;
+
+    private void Awake()
+    {
+        HideAllPanels();
+        mainMenuPanel.SetActive(true);
+    }
 
     public void UI_OnPlayGameClicked()
     {
@@ -18,7 +25,7 @@ public class MainMenu : MonoBehaviour
 
     public void UI_OnSettingsClicked()
     {
-        SetActiveStateForAllPanels(false);
+        HideAllPanels();
         settingsPanel.SetActive(true);
     }
 
@@ -29,14 +36,14 @@ public class MainMenu : MonoBehaviour
 
     public void UI_OnBackToMainMenuClicked()
     {
-        SetActiveStateForAllPanels(false);
+        HideAllPanels();
         mainMenuPanel.SetActive(true);
     }
 
-    private void SetActiveStateForAllPanels(bool toSet)
+    private void HideAllPanels()
     {
-        mainMenuPanel.SetActive(toSet);
-        settingsPanel.SetActive(toSet);
+        mainMenuPanel.SetActive(false);
+        settingsPanel.SetActive(false);
     }
 }
 }

@@ -410,11 +410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54dce8e131864b2db5d138e1fa31ccbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onSettingValueChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  settingKey: Invert Y
-  _settingDefaultValue: false
+  settingKey: 2
   toggle: {fileID: 1330220771355514079}
 --- !u!224 &4478866481314767162 stripped
 RectTransform:

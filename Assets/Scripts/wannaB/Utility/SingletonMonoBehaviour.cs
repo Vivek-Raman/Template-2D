@@ -21,8 +21,12 @@ public class SingletonMonoBehaviour<T> : MonoBehaviour where T : MonoBehaviour
         }
     }
 
-    public virtual void Awake()
+    protected virtual void Awake()
     {
+        if (FindObjectOfType<T>() != null)
+        {
+            Destroy(this.gameObject);
+        }
         DontDestroyOnLoad(this);
     }
 }

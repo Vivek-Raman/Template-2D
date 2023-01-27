@@ -1,17 +1,24 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
-using wannaB.UI;
 
 namespace wannaB.Settings
 {
 public class SettingsManager : MonoBehaviour
 {
-    [SerializeField] private List<SettingItem> settings;
     [SerializeField] private string settingsPrefix;
+
+    private List<SettingItem> _settings;
+    public Dictionary<SettingKey, SettingItem> Settings => _settings.ToDictionary(item => item.SettingKey);
+
+    private void Awake()
+    {
+        _settings = new List<SettingItem>(this.GetComponentsInChildren<SettingItem>());
+    }
 
     public void SaveSettings()
     {
-        foreach (SettingItem item in settings)
+        foreach (SettingItem item in _settings)
         {
             PlayerPrefs.SetString(GetPrefsKey(item.SettingKey), item.SettingValue);
         }
@@ -19,28 +26,27 @@ public class SettingsManager : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    public void LoadSettings(bool loadIntoUI)
+    public void LoadSettings()
     {
-        foreach (SettingItem item in settings)
+        foreach (SettingItem item in _settings)
         {
             string newValue = PlayerPrefs.GetString(GetPrefsKey(item.SettingKey), item.SettingDefaultValue);
-            item.LoadSettingValue(newValue, loadIntoUI);
+            item.LoadSettingValue(newValue);
         }
     }
 
     public void TrySaveFirstLaunchSettings()
     {
-        const string firstLaunchKey = "Returning Player";
-        if (bool.Parse(PlayerPrefs.GetString(GetPrefsKey(firstLaunchKey), "false"))) return;
-        foreach (SettingItem item in settings)
+        if (bool.Parse(PlayerPrefs.GetString(GetPrefsKey(SettingKey.ReturningPlayer), "false"))) return;
+        foreach (SettingItem item in _settings)
         {
             PlayerPrefs.SetString(GetPrefsKey(item.SettingKey), item.SettingDefaultValue);
         }
 
-        PlayerPrefs.SetString(GetPrefsKey(firstLaunchKey), "true");
+        PlayerPrefs.SetString(GetPrefsKey(SettingKey.ReturningPlayer), "true");
         PlayerPrefs.Save();
     }
 
-    private string GetPrefsKey(string key) => settingsPrefix + "." + key;
+    private string GetPrefsKey(SettingKey key) => settingsPrefix + "." + key.ToString();
 }
 }
