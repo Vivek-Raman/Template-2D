@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 544cef6443458ae4eadb24ac0bde3308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  settingsPrefix: wannaB.Ripple-Thing.Settings
+  settingsPrefix: wannaB.Template-2D.Settings
 --- !u!114 &3904450361672985272
 MonoBehaviour:
   m_ObjectHideFlags: 0

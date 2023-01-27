@@ -1,19 +1,22 @@
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
 namespace wannaB.Settings
 {
 public class SettingsManager : MonoBehaviour
 {
-    [SerializeField] private string settingsPrefix;
 
     private List<SettingItem> _settings;
+    private string _settingsPrefix;
+
     public Dictionary<SettingKey, SettingItem> Settings => _settings.ToDictionary(item => item.SettingKey);
 
     private void Awake()
     {
         _settings = new List<SettingItem>(this.GetComponentsInChildren<SettingItem>());
+        _settingsPrefix = PlayerSettings.companyName + "." + PlayerSettings.productName + ".Settings";
     }
 
     public void SaveSettings()
@@ -47,6 +50,6 @@ public class SettingsManager : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    private string GetPrefsKey(SettingKey key) => settingsPrefix + "." + key.ToString();
+    private string GetPrefsKey(SettingKey key) => _settingsPrefix + "." + key.ToString();
 }
 }

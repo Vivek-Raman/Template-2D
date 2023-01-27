@@ -185,6 +185,10 @@ sysinfo.txt
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
+# Third party Assets
+/[Aa]ssets/[Tt]hird ?Party/PlayerPrefsViewer/**/*
+/[Aa]ssets/[Tt]hird ?Party/PlayerPrefsViewer.meta
+
 ### Windows ###
 # Windows thumbnail cache files
 Thumbs.db
